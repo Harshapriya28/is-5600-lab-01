@@ -1,146 +1,129 @@
-* { box-sizing: border-box; }
-body, section, header, div, p, h1, h2, h3, ul, li, figure, figcaption { margin: 0; padding: 0; }
+* {
+   box-sizing: border-box;
+}
+body, section, header, div, p, h1, h2, h3, ul, li, figure, figcaption {
+   margin: 0;
+   padding: 0;
+}
 body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #F0F4F8;
-  font-weight: 300;
-  color: #102a43;
-  line-height: 1.5;
+   font-family: 'Open Sans', sans-serif;
+   box-sizing: border-box;
+   background-color: #F0F4F8;
+   font-weight: 300;
 }
 
-/* ---------- Main Styles for Lab 01 ---------- */
-
-/* Navigation Bar */
+/* add styles here */
+header {
+  background-image: url("images/florence.jpg"); /* replace with the actual image file name */
+  background-size: cover;
+  background-position: center; /* keeps image centered */
+  width: 100%;
+  min-height: 500px;
+}
 nav {
-  background-image: url("images/logo.svg"); /* change file name if needed */
+  background-image: url(images/logo.svg);
   background-size: 60px;
   background-repeat: no-repeat;
-  background-position: 10px 10px;
+  background-position: 10px 5px;
   padding: 20px;
   height: 100px;
 }
-
-nav ul { margin-left: 80px; }
-
 nav li {
   display: inline-block;
   list-style-type: none;
-  margin-right: 15px;
 }
-
+nav ul {
+  margin-left: 80px;
+}
 nav a {
   color: #51279b;
   text-decoration: none;
-  font-weight: 600;
   padding: 10px;
+  font-weight: 600;
 }
 
-nav a:visited { color: #8662c7; }
+nav a:visited {
+  color: #8662c7;
+}
 
 nav a:hover {
   color: #8662c7;
   text-decoration: underline;
 }
-
-/* Hero Section */
-header {
-  background-image: url("images/hero.jpg"); /* change file name if needed */
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  min-height: 500px;
-  color: white;
-}
-
 header div {
   margin: 100px 0 0 80px;
-  max-width: 600px;
-  text-shadow: 0 2px 6px rgba(0,0,0,.35);
 }
-
+header div {
+    margin: 100px 0 0 80px;
+    color: white; /* we can use the cascading nature of CSS to set the color for all the elements within the div */
+}
 header h2 {
   font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
 }
-
 header p {
   font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
-
-header a {
-  display: inline-block;
+header div a {
   background-color: #51279b;
   color: white;
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 5px;
-  font-weight: 600;
 }
 
-header a:hover { background-color: #8662c7; }
-
-/* Card Section (float layout) */
+header div a:hover {
+    background-color: #8662c7;
+}
 .card {
   float: left;
-  width: calc(33.333% - 10px);
+  display: inline-block;
+  width: calc(33% - 10px);
   margin: 10px 5px;
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+}
+.card div {
+    padding: 20px 5px;
 }
 
 .card img {
-  width: 100%;
-  display: block;
+    width: 100%;
 }
 
-.card div { padding: 20px; }
+.card div.description {
+    font-size: 12px;
+}
 
 .card h3 {
-  font-size: 18px;
-  margin-bottom: 5px;
+    font-size: 14px;
 }
-
-.card .description {
-  font-size: 14px;
-  color: #334e68;
-}
-
-/* Clear floats after the cards row */
-main::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Social Icons */
 .social {
-  margin-top: 10px;
+  margin-top: 1rem;
   font-size: 12px;
-  color: #486581;
 }
 
 .social span {
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: left center;
-  padding-left: 24px;
-  margin-right: 12px;
+  padding-left: 25px;
+  margin-right: 10px; /* we could use use 1em here, but 10px is a bit more precise */
 }
 
-.social .heart  { background-image: url("images/heart.png"); }
-.social .comment{ background-image: url("images/comment.png"); }
-
-/* Responsive Design */
-@media (max-width: 900px) {
-  header h2 { font-size: 38px; }
-  header p  { font-size: 20px; }
+.social .heart {
+  background-image: url(./images/heart.png);
 }
 
-@media (max-width: 760px) {
-  .card { width: 100%; }
+.social .comment {
+  background-image: url(./images/comment.png);
+}
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
+main .card {
+  width: 32%; /* Adjust to fit three cards neatly in a row without gaps */
+  margin-bottom: 15px;
+}
